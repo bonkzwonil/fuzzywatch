@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 
-static const int CONF_KOLJA = 1;
+static const int CONF_KOLJA = 0;
 static const int CONF_MORGENS = 0;
 
 
