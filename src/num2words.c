@@ -1,7 +1,9 @@
 #include "num2words.h"
 #include "string.h"
-#include <stdio.h>
-#include <stdlib.h>
+//#include <stdio.h>
+//#include <stdlib.h>
+#include "pebble_os.h"
+#include "pebble_app.h"
 
 
 static const int CONF_KOLJA = 0;
@@ -42,6 +44,20 @@ static const char* const STUNDEN[] ={
   "elf",
 };
 
+static const char* const MONATE[] ={
+  "Januar",
+  "Februar",
+  "März",
+  "April",
+  "Mai",
+  "Juni",
+  "Juli",
+  "September",
+  "Oktober",
+  "November",
+  "Dezember"
+};
+
 const char* const AMPM[] ={ "abends","morgens"};
 
 
@@ -50,6 +66,23 @@ static size_t append_string(char* buffer, const size_t length, const char* str) 
 
   size_t written = strlen(str);
   return (length > written) ? written : length;
+}
+
+char internalBuf[5];
+
+int date_to_words(int day, int month, int year, char *words, size_t length) {
+  memset(words, 0, length);
+  size_t remaining = length;
+  memset(internalBuf, 0, 5);
+  snprintf(internalBuf, 5, "%d", day);
+  remaining -= append_string(words, remaining, internalBuf);
+  remaining -= append_string(words, remaining, ". ");
+  remaining -= append_string(words, remaining, MONATE[month]);
+  remaining -= append_string(words, remaining, " ");
+  memset(internalBuf, 0, 5);
+  snprintf(internalBuf, 5, "%d", year);
+  remaining -= append_string(words, remaining, internalBuf);
+  return remaining;
 }
 
 int fuzzy_time_to_words(int hours, int minutes, char* words, size_t length) {
