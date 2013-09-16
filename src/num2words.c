@@ -122,6 +122,7 @@ int fuzzy_time_to_words(int hours, int minutes, char* words, size_t length) {
   return remaining;
 }
 
+/*
 void find_max_buf(void){
   char *str = malloc(35);
   int h=0;
@@ -138,7 +139,6 @@ void find_max_buf(void){
 
   printf("Max: %d, Min remaining: %d\n", max, min);
 }
-/*
 
 int main(void){
   find_max_buf();
