@@ -89,7 +89,7 @@ int fuzzy_time_to_words(int hours, int minutes, char* words, size_t length) {
   int fuzzy_hours = hours;
   int fuzzy_minutes = minutes;
   int morgens = 1;
-  if ( minutes >= 25 ){
+  if ( minutes >= 24 ){
     fuzzy_hours++;
   }
   if(fuzzy_hours>=12){
