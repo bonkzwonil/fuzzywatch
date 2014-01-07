@@ -27,7 +27,7 @@ GSize gsize;
 static void update_time(PblTm* t) {
   
   fuzzy_time_to_words(t->tm_hour, t->tm_min, s_data.buffer, BUFFER_SIZE);
-  date_to_words(t->tm_mday, t->tm_mon -1, t->tm_year + 1900, s_data.datebuffer, BUFFER_SIZE);
+  date_to_words(t->tm_mday, t->tm_mon, t->tm_year + 1900, s_data.datebuffer, BUFFER_SIZE);
   /*
   GContext* ctx =  app_get_current_graphics_context 	()		;
   gsize = text_layer_get_max_used_size(ctx, &s_data.label);
