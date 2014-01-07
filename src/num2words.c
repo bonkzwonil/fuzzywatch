@@ -53,6 +53,7 @@ static const char* const MONATE[] ={
   "Juni",
   "Juli",
   "September",
+  "August",
   "Oktober",
   "November",
   "Dezember"
